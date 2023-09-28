@@ -17,11 +17,25 @@
                 <div class="line"></div>
                 <div class="line"></div>
             </div>
+            <a class="header__logo" href="/">Rese</a>
+            @if(Auth::check())
             <ul class="menu" id="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Home2</a></li>
-                <li><a href="#">Home3</a></li>
+                <li><a href="/">Home</a></li>
+                <li>
+                    <form class="form" action="/logout" method="post">
+                    @csrf
+                    <button class="form-button" action="/logout" method="post">Logout</button>
+                    </form>
+                </li>
+                <li><a href="{{ route('mypage') }}">Mypage</a></li>
             </ul>
+            @else
+            <ul class="menu" id="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/register">Registration</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+            @endif
         </div>
     </header>
 
